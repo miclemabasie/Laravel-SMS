@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Klass extends Model
 {
     protected $fillable = [
@@ -13,12 +14,21 @@ class Klass extends Model
         'academic_year',
     ];
 
-    protected function teachers()
+    public function teachers()
     {
-        return $this->hasMany('teacher_id');
+        return $this->belongsToMany(Teacher::class, 'teacher_klass', 'klass_id', 'teacher_id');
+    }
+
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class);
+    }
+
+    public function students()
+    {
+        return $this->hasMany(Student::class);
     }
 
 
 
 }
-

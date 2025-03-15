@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
@@ -20,4 +19,21 @@ class Teacher extends Model
         'employment_date',
         'status'
     ];
+
+    public function klasses()
+    {
+        return $this->belongsToMany(Klass::class, 'teacher_klass', 'teacher_id', 'klass_id');
+    }
+
+    public function subjects()
+    {
+        return $this->hasMany('App\Models\Subject');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
+
+

@@ -14,4 +14,16 @@ class Subject extends Model
         'teacher_id',
         'credits'
     ];
+
+    public function teacher()
+    {
+        return $this->belongsTo('App\Models\Teacher');
+    }
+
+    public function klass()
+    {
+        return $this->belongsTo(Klass::class, 'klass_id');
+    }
+
+
 }

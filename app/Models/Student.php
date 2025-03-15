@@ -18,4 +18,17 @@ class Student extends Model
         'admission_number',
         'klass_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function klass()
+    {
+        return $this->belongsTo(klass::class);
+    }
+
+
+
 }
