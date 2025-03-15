@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -14,3 +15,6 @@ Route::post("/login-post", [AuthController::class, "postLogin"])->name("post.log
 Route::post("/signup-post", [AuthController::class, "postSignup"])->name("post.signup");
 
 Route::get("/logout", [AuthController::class, "logout"])->name("logout");
+
+
+Route::resource("/students", StudentController::class);
